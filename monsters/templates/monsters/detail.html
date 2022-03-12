@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Monster Detail{% endblock %}
+
+{% block content %}
+    {{ monster.name }}
+    {{ monster.family_1 }}
+    {% if monster.family_2 %}
+        {{ monster.family_2 }}
+    {% endif %}
+{% endblock %}
