@@ -1,11 +1,24 @@
 {% extends 'base.html' %}
 
-{% block title %}Monster Detail{% endblock %}
+{% block title %}{{ monsters.name }}{% endblock %}
 
 {% block content %}
-    {{ monster.name }}
-    {{ monster.family_1 }}
+<h2>{{ monster.name }}</h2>
+<div><strong>{{ monster.family_1 }}
     {% if monster.family_2 %}
         {{ monster.family_2 }}
     {% endif %}
+</strong></div>
+{% if pre_evolution %}
+    <div>
+        {{ pre_evolution }}
+    </div>
+{% endif %}
+{% for evolution in evolutions %}
+    <div>
+        {{ evolution }}
+    </div>
+{% endfor %}
+<div>HP: {{ monster.hp }} DEF: {{ monster.defense }} AGI: {{ monster.agility }}</div>
+<div>STR: {{ monster.strength }} DEX: {{ monster.dexterity }} INT: {{ monster.intellect }}</div>
 {% endblock %}
